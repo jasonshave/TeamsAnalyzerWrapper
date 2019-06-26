@@ -78,3 +78,7 @@ The last step is to point the Azure Function at the secret:
 ## Usage in Power BI
 
 >More details to follow in this section soon. However, the query URL will need to be updated for anyone using the existing `.pibx` file. The URL to get data will be the path to your Function App.
+
+## Potential issues
+
+1. Each call you make to your own Azure Function will also make a call to Azure Key Vault. There are [limits to how many calls](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-throttling) you can make in succession so you may want to consider throttling your functions if you encounter this issue.
