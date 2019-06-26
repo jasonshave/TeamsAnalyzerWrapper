@@ -10,36 +10,35 @@ using Microsoft.Extensions.Logging;
 
 namespace TeamsAnalyzer.Reporting
 {
-    public class GetActivityLogs
+    public class GetAllActivityLogs
     {
         private readonly HttpClient httpClient;
 
         //Get the subscription key from local.settings.json (if local) or App Settings in Azure or Key Vault
         private static string key = Environment.GetEnvironmentVariable("TeamsAnalyzerSubscriptionKey");
         
-        public GetActivityLogs(IHttpClientFactory httpClientFactory)
+        public GetAllActivityLogs(IHttpClientFactory httpClientFactory)
         {
             httpClient = httpClientFactory.CreateClient();
         }
 
-        [FunctionName("GetActivityLogs")]
+        [FunctionName("GetAllActivityLogs")]
         public async Task<IActionResult> Run(
             [HttpTrigger(
                 AuthorizationLevel.Function, 
                 "get", 
-                Route = "ActivityLog/{DomainName}/{NodeId}")] HttpRequest req, 
+                Route = "ActivityLog/{DomainName}")] HttpRequest req, 
                 ILogger log, 
-                string domainName, 
-                string nodeId
+                string domainName
             )
         {
-            log.LogInformation($"Performing activity log collection for domain: {domainName} on node: {nodeId}.");
+            log.LogInformation($"Performing all activity log collection for domain: {domainName}.");
             
             //Add the subscription key to the header
             httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
             //Make the call to the API
-            var httpResp = await httpClient.GetStringAsync($"https://api.teamsanalyzer.com/beta/reporting/ActivityLog/{domainName}/{nodeId}");
+            var httpResp = await httpClient.GetStringAsync($"https://api.teamsanalyzer.com/beta/reporting/ActivityLog/{domainName}");
             
             return httpResp != null
                 ? (ActionResult)new OkObjectResult(httpResp)
