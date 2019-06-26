@@ -34,7 +34,7 @@ This repo can be cloned and opened/deployed to your Azure tenant with minimal co
 3. The setting should have a name of "TeamsAnalyzerSubscriptionKey" so that it matches the constant defined in each function. For example:
 
 ```c#
-private static string subscriptionKeyName = Environment.GetEnvironmentVariable("TeamsAnalyzerSubscriptionKey");
+private static string key = Environment.GetEnvironmentVariable("TeamsAnalyzerSubscriptionKey");
 ```
 
 4. The value for the setting will be your reporting API subscription key.
