@@ -4,7 +4,7 @@ Teams Analyzer is a network assessment tool for measuring network performance an
 
 >Using [Microsoft's guidance on Docs](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-vs-code), this example was built with Visual Studio Code.
 
->NOTE: This solution uses [Azure Functions V2 dependency injection](https://medium.com/capax-brainpower/azure-functions-v2-dependency-injection-using-net-core-fccd93b80c0) to provide an `IHttpClientFactory` in accordance with the new methods for avoiding port exhaustion/etc.
+>NOTE: This solution uses [Azure Functions V2 dependency injection](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-dependency-injection) to provide an `IHttpClientFactory` in accordance with the new methods for avoiding port exhaustion/etc.
 
 ## Purpose
 
