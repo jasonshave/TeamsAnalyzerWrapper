@@ -23,9 +23,13 @@ Each Azure Function in this solution uses the "function keys" security model as 
 
 ## Configuration
 
-This repo can be cloned and opened/deployed to your Azure tenant with minimal configuration. You have two options to choose from; using the "Application Settings" of the Azure function directly, or more securely, in Azure Key Vault.
+This repository can be cloned and opened/deployed to your Azure tenant with minimal configuration. You have two options to choose from; using the "Application Settings" of the Azure function directly, or more securely, in Azure Key Vault.
 
-### Using Azure Functions Application Settings
+### Using `local.settings.json` file
+
+Starting out with a local development environment you likely won't have Key Vault set up yet and you will need some place to store secrets. You can use the `local.settings.json` file to store these as this file is ignored by Git. Running your functions locally will use the local file, whereas when you deploy to Azure, the **Application Settings** will take affect.
+
+### Using Azure Functions Application Settings in Azure
 
 1. Obtain your teamsanalyzer.com reporting API key from dev.teamsanalyzer.com.
 
