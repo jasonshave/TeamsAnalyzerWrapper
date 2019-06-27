@@ -45,7 +45,7 @@ Since Azure Key Vault is 'cheap as chips' we highly recommend storing secrets th
 
 First, we need to create a managed service identity for the function to authenticate to the key vault:
 
-1. From the Azure portal, locating your function and click on the tab labeled **Platform features**.
+1. From the Azure portal, locate your function and click on the tab labeled **Platform features**.
 
 2. Click the **Identity** link and enable the System-assigned Managed Service Identity. This will create an entity within your Azure AD environment we can use to set the permission on the key vault.
 
